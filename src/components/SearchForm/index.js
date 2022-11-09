@@ -6,6 +6,7 @@ import axiosFetchAPI from '../../actions';
 export default function SearchForm() {
     const [gitData, setGitData] = useState([])
     const [inputData, setInputData] = useState("")
+    const [avatar, setAvatar] = useState("")
     // let axiosData = await axiosFetchAPI('georgewood749')
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,7 +28,9 @@ export default function SearchForm() {
             const data = await apiData.json();
             console.log(data);
             const repoNames = data.map(repo => repo.name)
+            const avatar = data.map(repo => repo.owner.avatar_url)
             setGitData(repoNames)
+            setAvatar(avatar)
         } catch (err) {
             console.error(err)
         }
@@ -70,9 +73,9 @@ export default function SearchForm() {
                 <input type="text" placeholder="Search user here..." onChange={updateInput}></input>
                 <input type="submit"></input>
             </form>
-            {/* {gitData && gitData.map(b => <li>{b.name}</li>)} */}
-        {/* {console.log("gitData2: ", gitData)} */}
+        <img src={avatar} alt="avatar"/>
         {gitData.map(b => <li>{b}</li>)}
+
 
         </div>
     )
