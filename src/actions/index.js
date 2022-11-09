@@ -13,7 +13,6 @@ import axios from "axios"
 const axiosFetchAPI = async (username) => {
   try{
     const { data } = await axios.get(`https://api.github.com/users/${username}/repos?per_page=100&page=1`);
-    console.log(data)
     return data;
   } catch (err) {
     throw new Error(err.message)

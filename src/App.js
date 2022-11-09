@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import './App.css';
-import fetchAPI from './actions';
 import axiosFetchAPI from './actions';
 
-export default function App() {
-const result = useSelector(state => state.result);
-
-let axiosData = axiosFetchAPI('georgewood749')
+export default async function App() {
+let axiosData = await axiosFetchAPI('georgewood749')
 console.log("axiosData:", axiosData)
+console.log("axiosData number of repos:", axiosData.length)
+const value = Object.values(axiosData)[0]
+console.log("axiosData value:", value)
+console.log("axiosData username:", value.owner.login)
+console.log("axiosData id:", value.id)
 
 // let myData = fetchAPI('georgewood749')
 // console.log("mydata:", myData)
@@ -19,4 +20,6 @@ console.log("axiosData:", axiosData)
     </div>
   );
 }
+
+
 
