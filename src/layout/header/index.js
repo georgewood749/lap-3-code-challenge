@@ -1,9 +1,12 @@
 import React from 'react'
+import logo from '../../components/images/logo.png'
+import SearchForm from '../../components/SearchForm'
 
 export default function Header() {
   return (
     <div>
-        <img src="../components/images/GitHub-Mark-Light-64px.png" alt="github logo"/>
+        <img src={logo} alt="github logo"/>
+        <SearchForm/>
     </div>
   )
 }
