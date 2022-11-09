@@ -9,6 +9,7 @@ export default function SearchForm() {
     // let axiosData = await axiosFetchAPI('georgewood749')
     const handleSubmit = (e) => {
         e.preventDefault()
+        getData(inputData)
     }
 
     const updateInput = (e) => {
@@ -19,8 +20,8 @@ export default function SearchForm() {
     //     console.log("inputdata:", inputData)
     // }, [inputData])
 
-    async function getData() {
-        const fetchApi = "https://api.github.com/users/georgewood749/repos?per_page=100&page=1"
+    async function getData(username) {
+        const fetchApi = `https://api.github.com/users/${username}/repos?per_page=100&page=1`
         try {
             const apiData = await fetch(fetchApi);
             const data = await apiData.json();
@@ -32,9 +33,9 @@ export default function SearchForm() {
         }
     }
 
-    useEffect(() => {
-        getData()
-    }, [])
+    // useEffect(() => {
+    //     getData(inputData)
+    // }, [inputData])
 
     // useEffect(() => {
     //     try {
