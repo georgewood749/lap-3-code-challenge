@@ -1,9 +1,17 @@
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import fetchAPI from './actions';
+import axiosFetchAPI from './actions';
 
-function App() {
+export default function App() {
+const result = useSelector(state => state.result);
 
-let myData = fetchAPI('georgewood749')
+let axiosData = axiosFetchAPI('georgewood749')
+console.log("axiosData:", axiosData)
+
+// let myData = fetchAPI('georgewood749')
+// console.log("mydata:", myData)
 
   return (
     <div className="App">
@@ -12,4 +20,3 @@ let myData = fetchAPI('georgewood749')
   );
 }
 
-export default App;
