@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Repo() {
+
+export default function Repo({repos}) {
     return (
         <div>
-            <h1>Repo name</h1>
-            <p></p>
+            <h1>{repos.name}</h1>
+            {repos.map((repo) => (
+                <li key={repo.id}>
+                    {repo.name}
+                </li>
+            ))}
         </div>
     )
 }
