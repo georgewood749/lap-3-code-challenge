@@ -7,6 +7,10 @@ export default function SearchForm() {
     const [inputData, setInputData] = useState("")
     const [avatar, setAvatar] = useState("")
     const [login, setLogin] = useState("")
+    const [forks, setForks] = useState("")
+    const [visibility, setVisibility] = useState("")
+    const [language, setLanguage] = useState("")
+    const [stargazers, setStargazers] = useState("")
 
     // let axiosData = await axiosFetchAPI('georgewood749')
     const handleSubmit = (e) => {
@@ -29,10 +33,18 @@ export default function SearchForm() {
             const repoNames = data.map(repo => repo.name)
             const avatar = data.map(repo => repo.owner.avatar_url)
             const login = data.map(repo => repo.owner.login)
+            const forks = data.map(repo => repo.forks_count)
+            const stargazers_count = data.map(repo => repo.stargazers_count)
+            const visibility = data.map(repo => repo.visibility)
+            const language = data.map(repo => repo.language)
             console.log(login)
             setGitData(repoNames)
             setAvatar(avatar)
             setLogin(login)
+            setForks(forks)
+            setStargazers(stargazers_count)
+            setVisibility(visibility)
+            setLanguage(language)
         } catch (err) {
             console.error(err)
         }
@@ -47,10 +59,7 @@ export default function SearchForm() {
                 </form>
             </div>
             <User avatar={avatar} username={login[0]} repoNum={gitData.length}/>
-            <RepoList gitData={gitData}/>
-
-
-
+            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language}/>
         </div>
     )
 
