@@ -1,0 +1,33 @@
+.header{
+    background-color: #161B22;
+    min-height: 70px;
+}
+.form{
+    display: flex;
+    margin-left: 100px;
+    padding-top: 25px;
+    color: white;
+}
+
+.formInput{
+    background-color: #0D1117;
+    color: white;
+    min-height: 20px;
+    border: 1px #44484C solid;
+    
+}
+
+.formButton{
+    background-color: #0D1117;
+    color: white;
+    border: 1px #44484C solid;
+}
+
+.userInfo{
+    background-color: #010409;
+    color: white;
+}
+
+li{
+    color: white;
+}

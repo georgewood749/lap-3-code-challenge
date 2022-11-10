@@ -1,10 +1,17 @@
 import React from 'react'
+import './style.css'
 
-export default function Repo() {
+export default function RepoList({gitData}) {
+
     return (
-        <div>
-            <h1>Repo name</h1>
-            <p></p>
+        <div class="repoContainer">
+            <div className='repoList'>
+                <h2>List of Repositories:</h2>
+                {gitData.map(b => <li className="repoListNames">{b}</li>)}
+            </div>
+            <div>
+                <p>Hi</p>
+            </div>
         </div>
     )
 }

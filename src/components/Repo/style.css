@@ -1,0 +1,25 @@
+.repoContainer{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 1px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    background-color: #0D1117;
+    border: solid 1px #30363D;
+}
+
+.repoList{
+    text-align: left;
+}
+
+h2{
+    color: white;
+}
+
+.repoListNames{
+    color: white;
+}
+
