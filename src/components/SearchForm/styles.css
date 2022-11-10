@@ -14,12 +14,11 @@
     transition: all 5s ease-in-out;
 }
 
-.formInput[type=text] {
+.formInput{
     background-color: #0D1117;
     color: white;
     min-height: 20px;
     border: 1px #44484C solid;
-    transition: all 5s ease-in-out;
 }
 
 .formInput:focus{
