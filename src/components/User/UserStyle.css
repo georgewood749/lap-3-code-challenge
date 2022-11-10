@@ -1,12 +1,15 @@
 .userContainer {
     display: flex;
+    justify-content: space-between;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 10px;
     background-color: #0D1117;
     border: solid 1px #30363D;
     border-radius: 2%;
-    min-height: 150px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 15px;
 
 }
 
@@ -29,6 +32,8 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     background-color: #0D1117;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .userImg {
@@ -42,23 +47,12 @@
 
 .repoNum {
     display: flex;
-    flex-direction: column;
-    /* padding-top: 50px; */
+    padding-right: 40px;
     position: relative;
-    color: white;
+    color: #BCD1D9;
     font-weight: bolder;
     align-items: center;
-    /* font-size: xx-large; */
+    text-align: right;
 }
 
 
-/* .repoNum {
-
-} */
-
-p {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: #BCD1D9;
-}
