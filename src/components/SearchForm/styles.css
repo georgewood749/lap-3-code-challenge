@@ -16,20 +16,20 @@
 
 .formInput{
     background-color: #0D1117;
-    color: white;
+    color: #BCD1D9;
     min-height: 20px;
     border: 1px #44484C solid;
+    transition: width 5s ease-in-out;
 }
 
-.formInput:focus{
-    width:40%;
+.formInput:focus-within{
     outline: none;
-    transition: all 5s ease-in-out;
+    width: 40%;
 }
 
 .formButton{
     background-color: #0D1117;
-    color: white;
+    color: #BCD1D9;
     border: 1px #44484C solid;
 }
 
