@@ -52,11 +52,14 @@ export default function SearchForm() {
 
     return (
         <div>
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css"></link>
             <div className='header'>
                 <form onSubmit={handleSubmit} className="form">
                     <input type="text" placeholder="Search user here..." onChange={updateInput} value={inputData} className="formInput"></input>
-                    <input type="submit" className='formButton'></input>
+                    <input type="submit" className='formButton' value="+"></input>
                 </form>
+                <i class="uil uil-bell"></i>
+                <img src={avatar} className="userImgUpTop"></img>
             </div>
             <User avatar={avatar} username={login[0]} repoNum={gitData.length}/>
             <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language}/>
