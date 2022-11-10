@@ -16,7 +16,7 @@ export default function Carousel({gitData, forks, stargazers, visibility, langua
                 <li className='stats'>Number of forks: {forks[index]}</li>
                 <li className='stats'>Number of stars: {stargazers[index]}</li>
                 <li className='stats'>Repo Visibility: {visibility[index]}</li>
-                <li className='stats'>Language: {language[index]}</li>
+                <li className='stats'>Language: {language[index] ? language[index] : "N/A"}</li>
             </ul>
         </Accordion.Body>
         </Accordion.Item>

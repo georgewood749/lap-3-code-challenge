@@ -52,18 +52,6 @@
     color: #BCD1D9
 }
 
-.repoNum{
-    padding-top: 50px;
-.repoNum {
-    display: flex;
-    padding-right: 40px;
-    position: relative;
-    color: white;
-    font-size: 15px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
 
 .repoNum {
     display: flex;
