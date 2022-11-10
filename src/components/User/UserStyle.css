@@ -50,7 +50,14 @@
     display: flex;
     position: relative;
     color: #BCD1D9;
-    font-weight: bolder;
     align-items: center;
     text-align: right;
+}
+
+p{
+    color: #BCD1D9;
+}
+
+.accordHead2{
+    color: #BCD1D9;
 }

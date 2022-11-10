@@ -38,3 +38,8 @@ h2{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.accordHead{
+    color: #BCD1D9;
+    text-decoration: none;
+}

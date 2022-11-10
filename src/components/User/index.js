@@ -5,7 +5,7 @@ export default function User({ avatar, username, repoNum, followers, following, 
     return (
         <div className="userContainer">
             <div className='username'>
-                <h2><a href={URL}><img src={avatar} className="userImg"></img>{username}</a></h2>
+                <h2><a href={URL} className="accordHead2"><img src={avatar} className="userImg"></img>{username}</a></h2>
             </div>
             <div className='userInfo'>
                 <p className='repoNum'>Number of repos: {repoNum}</p>

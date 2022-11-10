@@ -14,7 +14,7 @@ export default function Carousel({ gitData, forks, stargazers, visibility, langu
                 <div className='firstHalf'>
                     {gitData.slice(0, half_length).map((b, index) => <Accordion key={Math.random() * 99999}>
                         <Accordion.Item eventKey="0" className="statsContainerHeader">
-                            <Accordion.Header><a href={repoURL[index]}>{b}</a></Accordion.Header>
+                            <Accordion.Header><a href={repoURL[index]} className="accordHead">{b}</a></Accordion.Header>
                             <Accordion.Body className='statsContainer'>
                                 <ul>
                                     <li className='stats'>Forks: {forks[index]}</li>
@@ -31,7 +31,7 @@ export default function Carousel({ gitData, forks, stargazers, visibility, langu
                 <div className='secondHalf'>
                     {gitData.slice(half_length).map((b, index) => <Accordion key={Math.random() * 99999}>
                         <Accordion.Item eventKey="0" className="statsContainerHeader">
-                            <Accordion.Header><a href={repoURL[index]}>{b}</a></Accordion.Header>
+                            <Accordion.Header><a href={repoURL[index]} className="accordHead">{b}</a></Accordion.Header>
                             <Accordion.Body className='statsContainer'>
                                 <ul>
                                     <li className='stats'>Forks: {forks[index]}</li>
