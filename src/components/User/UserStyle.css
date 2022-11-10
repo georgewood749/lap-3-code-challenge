@@ -69,6 +69,7 @@
     color: #BCD1D9;
     filter: brightness(0) invert(1);
     padding-right: 5px;
+    padding-bottom: 3px;
 }
 
 p{

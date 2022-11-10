@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './layout/header';
+import Header from '../src/layout/Header';
 
 export default function App() {
 
