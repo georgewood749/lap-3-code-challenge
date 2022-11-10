@@ -3,6 +3,7 @@ import './styles.css'
 import User from '../User'
 import RepoList from '../Repo/'
 
+
 export default function SearchForm() {
     const [gitData, setGitData] = useState([])
     const [inputData, setInputData] = useState("")
@@ -12,8 +13,17 @@ export default function SearchForm() {
     const [visibility, setVisibility] = useState("")
     const [language, setLanguage] = useState("")
     const [stargazers, setStargazers] = useState("")
+    const [followers, setFollowers] = useState("")
+    const [following, setFollowing] = useState("")
+    const [createDate, setCreateDate] = useState("")
+    const [htmlUrl, setHtmlUrl] = useState("")
 
-    // let axiosData = await axiosFetchAPI('georgewood749')
+
+    useEffect(() => {
+        getData("georgewood749")
+    }, [])
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
         getData(inputData)
@@ -26,19 +36,37 @@ export default function SearchForm() {
     }
 
     async function getData(username) {
-        const fetchApi = `https://api.github.com/users/${username}/repos?per_page=100&page=1`
+        const fetchApiRepo = `https://api.github.com/users/${username}/repos?per_page=100&page=1`
+        const fetchApiUser = `https://api.github.com/users/${username}`
         try {
-            const apiData = await fetch(fetchApi);
-            const data = await apiData.json();
-            console.log(data);
-            const repoNames = data.map(repo => repo.name)
-            const avatar = data.map(repo => repo.owner.avatar_url)
-            const login = data.map(repo => repo.owner.login)
-            const forks = data.map(repo => repo.forks_count)
-            const stargazers_count = data.map(repo => repo.stargazers_count)
-            const visibility = data.map(repo => repo.visibility)
-            const language = data.map(repo => repo.language)
-            console.log(login)
+            const apiDataRepo = await fetch(fetchApiRepo);
+            const repoData = await apiDataRepo.json();
+            // console.log(repoData);
+
+            const apiDataUser = await fetch(fetchApiUser);
+            const userData = await apiDataUser.json()
+            // console.log(userData)
+
+            // User info
+            const followers = userData.followers
+            const following = userData.following
+            const createDate = userData.created_at
+            const userURL = userData.html_url
+
+            // Repo info
+            const repoNames = repoData.map(repo => repo.name)
+            const avatar = repoData.map(repo => repo.owner.avatar_url)
+            const login = repoData.map(repo => repo.owner.login)
+            const forks = repoData.map(repo => repo.forks_count)
+            const stargazers_count = repoData.map(repo => repo.stargazers_count)
+            const visibility = repoData.map(repo => repo.visibility)
+            const language = repoData.map(repo => repo.language)
+
+            setFollowers(followers)
+            setFollowing(following)
+            setCreateDate(createDate)
+            setHtmlUrl(userURL)
+
             setGitData(repoNames)
             setAvatar(avatar)
             setLogin(login)
@@ -60,8 +88,9 @@ export default function SearchForm() {
                 </form>
                 <img src={avatar} className="userImgUpTop"></img>
             </div>
-            <User avatar={avatar} username={login[0]} repoNum={gitData.length}/>
-            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language}/>
+            <User avatar={avatar} username={login[0]} repoNum={gitData.length} followers={followers} following={following} createDate={createDate} URL={htmlUrl}/>
+            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language} />
+
         </div>
     )
 

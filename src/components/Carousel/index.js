@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
 
 export default function Carousel({gitData, forks, stargazers, visibility, language}) {
-    console.log("forks in carousel", forks)
+    // console.log("forks in carousel", forks)
   return (
     <>
     <h2>List of Repositories:</h2>
