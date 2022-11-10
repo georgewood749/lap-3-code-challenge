@@ -8,7 +8,7 @@ export default function User({avatar, username, repoNum}) {
             <h3 className='username'>{username}</h3>
             <br/>
             <br/>
-            <p className='repoNum'>Number of repos: {repoNum}</p>
+            <li className='repoNum'>Number of repos: {repoNum}</li>
         </div>
     )
 }
