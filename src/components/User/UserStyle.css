@@ -19,6 +19,7 @@
 }
 
 .username{
+    padding-top: 10px;
     color: #BCD1D9
 }
 
@@ -26,4 +27,5 @@
     padding-top: 50px;
     position: relative;
     color: white;
+    font-size: 20px;
 }

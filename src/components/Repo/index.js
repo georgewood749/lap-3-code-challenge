@@ -9,5 +9,6 @@ export default function RepoList({gitData, forks, stargazers, visibility, langua
             <div className='repoList'>
                 <Carousel gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language}/>
             </div>
+        </div>
     )
 }
