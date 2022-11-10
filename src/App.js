@@ -5,9 +5,9 @@ import Header from './layout/header';
 export default function App() {
 
   return (
-    <div className="App">
-      <Header/>
-    </div>
+      <div className="App">
+        <Header />
+      </div>
   );
 }
 
