@@ -7,10 +7,8 @@ import fork from '../images/code-branch.svg';
 import calendar1 from '../images/calender.svg'
 import calendar2 from '../images/calendar-alt.svg'
 import curlyBoiz from '../images/brackets-curly.svg'
-import arrow from '../images/arrow.svg'
 
-
-export default function Carousel({ gitData, forks, stargazers, visibility, language, repoCreateDate, repoUpdateDate, repoURL }) {
+export default function Carousel({ gitData, forks, stargazers, language, repoCreateDate, repoUpdateDate, repoURL }) {
     var half_length = Math.ceil(gitData.length / 2)
 
     return (

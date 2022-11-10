@@ -11,7 +11,6 @@ export default function SearchForm() {
     const [avatar, setAvatar] = useState("")
     const [login, setLogin] = useState("")
     const [forks, setForks] = useState("")
-    const [visibility, setVisibility] = useState("")
     const [language, setLanguage] = useState("")
     const [stargazers, setStargazers] = useState("")
     const [repoCreateDate, setRepoCreateDate] = useState("")
@@ -47,11 +46,9 @@ export default function SearchForm() {
         try {
             const apiDataRepo = await fetch(fetchApiRepo);
             const repoData = await apiDataRepo.json();
-            console.log(repoData);
 
             const apiDataUser = await fetch(fetchApiUser);
             const userData = await apiDataUser.json()
-            // console.log(userData)
 
             // User info
             const followers = userData.followers
@@ -65,7 +62,6 @@ export default function SearchForm() {
             const login = repoData.map(repo => repo.owner.login)
             const forks = repoData.map(repo => repo.forks_count)
             const stargazers_count = repoData.map(repo => repo.stargazers_count)
-            const visibility = repoData.map(repo => repo.visibility)
             const language = repoData.map(repo => repo.language)
             const repoCreateDate = repoData.map(repo => repo.created_at)
             const repoUpdateDate = repoData.map(repo => repo.updated_at)
@@ -83,7 +79,6 @@ export default function SearchForm() {
             setLogin(login)
             setForks(forks)
             setStargazers(stargazers_count)
-            setVisibility(visibility)
             setLanguage(language)
             setRepoCreateDate(repoCreateDate)
             setRepoUpdateDate(repoUpdateDate)
@@ -104,7 +99,7 @@ export default function SearchForm() {
                 <img src={avatar} className="userImgUpTop"></img>
             </div>
             <User avatar={avatar} username={login[0]} repoNum={gitData.length} followers={followers} following={following} createDate={createDate} URL={htmlUrl}/>
-            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language} repoCreateDate={repoCreateDate} repoUpdateDate={repoUpdateDate} repoURL={repoURL} />
+            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} language={language} repoCreateDate={repoCreateDate} repoUpdateDate={repoUpdateDate} repoURL={repoURL} />
 
         </div>
     )
