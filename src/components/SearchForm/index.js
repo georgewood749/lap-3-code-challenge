@@ -4,11 +4,6 @@ import './styles.css'
 import User from '../User'
 import RepoList from '../Repo/'
 
-import React, { useState } from 'react'
-import Repo from '../Repo'
-import User from '../User'
-
-
 
 export default function SearchForm() {
     const [gitData, setGitData] = useState([])
