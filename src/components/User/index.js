@@ -9,8 +9,7 @@ export default function User({ avatar, username, repoNum, followers, following, 
             </div>
             <div className='userInfo'>
                 <p className='repoNum'>Number of repos: {repoNum}</p>
-                <p>Followers: {followers}</p>
-                <p>Following: {following}</p>
+                <p>Followers: {followers} · Following: {following}</p>
                 <p>Create date: {createDate.slice(0, 10)}</p>
             </div>
         </div>

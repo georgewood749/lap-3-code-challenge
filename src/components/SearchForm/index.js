@@ -5,6 +5,7 @@ import RepoList from '../Repo/'
 
 
 export default function SearchForm() {
+    // Repo states
     const [gitData, setGitData] = useState([])
     const [inputData, setInputData] = useState("")
     const [avatar, setAvatar] = useState("")
@@ -13,6 +14,11 @@ export default function SearchForm() {
     const [visibility, setVisibility] = useState("")
     const [language, setLanguage] = useState("")
     const [stargazers, setStargazers] = useState("")
+    const [repoCreateDate, setRepoCreateDate] = useState("")
+    const [repoUpdateDate, setRepoUpdateDate] = useState("")
+    const [repoURL, setRepoURL] = useState("")
+
+    // User states
     const [followers, setFollowers] = useState("")
     const [following, setFollowing] = useState("")
     const [createDate, setCreateDate] = useState("")
@@ -20,7 +26,7 @@ export default function SearchForm() {
 
 
     useEffect(() => {
-        getData("georgewood749")
+        getData("getfutureproof")
     }, [])
 
 
@@ -41,7 +47,7 @@ export default function SearchForm() {
         try {
             const apiDataRepo = await fetch(fetchApiRepo);
             const repoData = await apiDataRepo.json();
-            // console.log(repoData);
+            console.log(repoData);
 
             const apiDataUser = await fetch(fetchApiUser);
             const userData = await apiDataUser.json()
@@ -61,12 +67,17 @@ export default function SearchForm() {
             const stargazers_count = repoData.map(repo => repo.stargazers_count)
             const visibility = repoData.map(repo => repo.visibility)
             const language = repoData.map(repo => repo.language)
+            const repoCreateDate = repoData.map(repo => repo.created_at)
+            const repoUpdateDate = repoData.map(repo => repo.updated_at)
+            const repoURL = repoData.map(repo => repo.html_url)
 
+            // User setters
             setFollowers(followers)
             setFollowing(following)
             setCreateDate(createDate)
             setHtmlUrl(userURL)
 
+            // Repo setters
             setGitData(repoNames)
             setAvatar(avatar)
             setLogin(login)
@@ -74,6 +85,10 @@ export default function SearchForm() {
             setStargazers(stargazers_count)
             setVisibility(visibility)
             setLanguage(language)
+            setRepoCreateDate(repoCreateDate)
+            setRepoUpdateDate(repoUpdateDate)
+            setRepoURL(repoURL)
+
         } catch (err) {
             console.error(err)
         }
@@ -88,7 +103,7 @@ export default function SearchForm() {
                 </form>
             </div>
             <User avatar={avatar} username={login[0]} repoNum={gitData.length} followers={followers} following={following} createDate={createDate} URL={htmlUrl}/>
-            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language} />
+            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language} repoCreateDate={repoCreateDate} repoUpdateDate={repoUpdateDate} repoURL={repoURL} />
 
         </div>
     )

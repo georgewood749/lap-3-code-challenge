@@ -29,6 +29,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     background-color: #0D1117;
+    align-self: flex-end;
 }
 
 .userImg {
