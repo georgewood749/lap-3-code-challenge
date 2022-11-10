@@ -54,3 +54,10 @@
     align-items: center;
     text-align: right;
 }
+
+.icons {
+    width: 1rem;
+    fill: #BCD1D9;
+    color: #BCD1D9;
+    filter: brightness(0) invert(1);
+}
