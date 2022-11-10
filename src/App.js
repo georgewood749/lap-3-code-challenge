@@ -1,16 +1,15 @@
-import Header from "./layout/Header";
+import React from 'react';
 import './App.css';
-import fetchAPI from ''
+import Header from './layout/header';
 
-function App() {
-  fetchAPI()
+export default function App() {
 
   return (
-    <div className="App">
-      <Header/>
-      App
-    </div>
+      <div className="App">
+        <Header />
+      </div>
   );
 }
 
-export default App;
+
+
