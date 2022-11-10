@@ -1,6 +1,13 @@
+
+import React, { useState, useEffect } from 'react'
+import './styles.css'
+import User from '../User'
+import RepoList from '../Repo/'
+
 import React, { useState } from 'react'
 import Repo from '../Repo'
 import User from '../User'
+
 
 
 export default function SearchForm() {
@@ -8,6 +15,10 @@ export default function SearchForm() {
     const [inputData, setInputData] = useState("")
     const [avatar, setAvatar] = useState("")
     const [login, setLogin] = useState("")
+    const [forks, setForks] = useState("")
+    const [visibility, setVisibility] = useState("")
+    const [language, setLanguage] = useState("")
+    const [stargazers, setStargazers] = useState("")
 
 
 
@@ -32,9 +43,21 @@ export default function SearchForm() {
             const repoNames = data.map(repo => repo.name)
             const avatar = data.map(repo => repo.owner.avatar_url)
             const login = data.map(repo => repo.owner.login)
+
+            const forks = data.map(repo => repo.forks_count)
+            const stargazers_count = data.map(repo => repo.stargazers_count)
+            const visibility = data.map(repo => repo.visibility)
+            const language = data.map(repo => repo.language)
+            console.log(login)
+
+
             setGitData(repoNames)
             setAvatar(avatar)
             setLogin(login)
+            setForks(forks)
+            setStargazers(stargazers_count)
+            setVisibility(visibility)
+            setLanguage(language)
         } catch (err) {
             console.error(err)
         }
@@ -42,19 +65,14 @@ export default function SearchForm() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Search user here..." onChange={updateInput} value={inputData}></input>
-                <input type="submit"></input>
-            </form>
-            <User avatar={avatar} username={login[0]} repoNum={gitData.length} />
-            {/* <h2>{login[0]}</h2>
-        <img src={avatar} alt="avatar"/> */}
-            {gitData.map(b => <li>{b}</li>)}
-            <Repo repos={gitData} />
-
-            {/* <RepoContext.Provider value={[gitData, setGitData]}>
-         */}
-            <RepoContext.Provider value={[gitData, setGitData]}></RepoContext.Provider>
+            <div className='header'>
+                <form onSubmit={handleSubmit} className="form">
+                    <input type="text" placeholder="Search user here..." onChange={updateInput} value={inputData} className="formInput"></input>
+                    <input type="submit" className='formButton'></input>
+                </form>
+            </div>
+            <User avatar={avatar} username={login[0]} repoNum={gitData.length}/>
+            <RepoList gitData={gitData} forks={forks} stargazers={stargazers} visibility={visibility} language={language}/>
 
         </div>
     )
